@@ -1,0 +1,23 @@
+{
+   "Name": "Support Request Contributor (Custom)",
+   "IsCustom": true,
+   "Description": "Allows to create support requests",
+   "Actions": [
+       "Microsoft.Resources/subscriptions/resourceGroups/read",
+       "Microsoft.Support/*"
+   ],
+   "NotActions": [
+   ],
+   "AssignableScopes": [
+       "/providers/Microsoft.Management/managementGroups/az104-02-mg1",
+       "/subscriptions/8eb87b35-7dde-48d4-878f-61dede2457cf"
+   ]
+}
+
+
+
+   
+ $scope = (Get-AzRoleDefinition -Name 'Support Request Contributor (Custom)').AssignableScopes | Where-Object {$_ -like '*managementgroup*'}
+    
+ Remove-AzRoleAssignment -ObjectId '8e33c1c5-1ad0-4da0-9fea-244b50e56241' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
+

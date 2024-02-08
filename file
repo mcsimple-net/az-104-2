@@ -14,10 +14,10 @@
    ]
 }
 
-
-
    
  $scope = (Get-AzRoleDefinition -Name 'Support Request Contributor (Custom)').AssignableScopes | Where-Object {$_ -like '*managementgroup*'}
     
  Remove-AzRoleAssignment -ObjectId '8e33c1c5-1ad0-4da0-9fea-244b50e56241' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
+
+Remove-AzRoleDefinition -Name 'Support Request Contributor (Custom)' -Force
 
